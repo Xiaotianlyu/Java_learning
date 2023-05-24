@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class PayrollSystem {
 
-    Scanner scan = new Scanner(System.in);
+    static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
 
         Employee[] employees1 = new Employee[2];
@@ -27,7 +27,9 @@ public class PayrollSystem {
             System.out.println(employees1[i].toString());
             System.out.println("工资为" + employees1[i].earnings());
 
-            if(month == employees1[i].getBirthday())
+            if(month == employees1[i].getBirthday().getMonth()){
+                System.out.println("生日快乐，加薪100！");
+            }
         }
     }
 

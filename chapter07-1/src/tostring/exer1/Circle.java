@@ -42,7 +42,7 @@ public class Circle extends GeometricObject {
         }
         return false;
     }
-    public String tostring(){
+    public String toString(){
         return "Circle[radius = " + radius + "]";
     }
 }

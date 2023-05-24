@@ -7,11 +7,12 @@ public class CircleTest {
 
         //判断颜色
         System.out.println(c1.getColor().equals(c2.getColor()));
-        System.out.println(c1.color.equals(c2.color));
+        System.out.println(c1.color.equals(c2.color));//调属性 不建议
         //判断半径
         System.out.println(c1.equals(c2));
         //打印半径
         System.out.println(c1);
-        System.out.println(c1.tostring());
+        System.out.println(c1.toString());
+
     }
 }
