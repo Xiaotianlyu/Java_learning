@@ -1,6 +1,8 @@
 package Wrapper.exer1;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
+import java.util.Vector;
 
 /**
  * 利用 Vector 代替数组处理：从键盘读入学生成绩（以负数代表输入结束），找
@@ -15,7 +17,7 @@ import java.util.Scanner;
  * • 若与最高分相差 10 分内：A 等；20 分内：B 等；30 分内：C 等；其它：D 等
  */
 
-public class Vector {
+public class ScoreTest {
 
     public static void main(String[] args) {
 
@@ -28,7 +30,7 @@ public class Vector {
 
         //2 从键盘获取多个学生成绩 存放到V中
         while (true) {
-            System.out.println("请输入学生成绩（以负数输入代表结束）：");
+            System.out.print("请输入学生成绩（以负数输入代表结束）：");
             int intScore = scanner.nextInt();
 
             //判断分数是否为负数
@@ -43,7 +45,7 @@ public class Vector {
             v.addElement(intScore);
 
             //3 获取最大值
-            if (maxScore < intScore){
+            if (maxScore < intScore) {
                 maxScore = intScore;
             }
 
@@ -51,17 +53,25 @@ public class Vector {
 
         //4.依次获取每个学生的成绩，与最高分进行比较，获取学生成绩等级
         for (int i = 0; i < v.size(); i++) {
-            v.elementAt
+
+            Object objScore = v.elementAt(i);//获取对象
+            //自动拆箱
+            int score = (Integer) objScore;
+            char grade;
+            if (maxScore - score <= 10) {
+                grade = 'A';
+            } else if (maxScore - score <= 20) {
+                grade = 'B';
+            } else if (maxScore - score <= 30) {
+                grade = 'C';
+            } else {
+                grade = 'D';
+            }
+
+            System.out.println("student " + i + " score is " + score + "grade is " + grade);
+
         }
-
         scanner.close();
-
-    }
-
-    private void addElement(int intScore) {
-    }
-
-    private void addElement() {
     }
 
 
